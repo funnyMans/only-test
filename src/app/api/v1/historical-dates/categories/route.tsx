@@ -12,7 +12,7 @@ const handler = async (req: Request) => {
 
       const categories = Object.keys(data).map((item: string) => item);
 
-      return NextResponse.json(JSON.stringify(categories), {
+      return NextResponse.json(categories, {
         status: 200,
         headers: {
           'Content-Type': 'application/json',
