@@ -5,7 +5,7 @@ const handler = async (req: Request) => {
 
   if (method === 'GET') {
     try {
-      const url = `/mock/historical-dates.json`;
+      const url = `/mock/historicalDates.json`;
       const res = await fetch(url);
 
       const data = await res.json();

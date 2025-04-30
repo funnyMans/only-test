@@ -5,7 +5,7 @@ import { queryOptions } from '@tanstack/react-query';
 export const historicalDatesOptions = queryOptions<
   Record<string, HistoryEvent[]>
 >({
-  queryKey: ['historical-dates'],
+  queryKey: ['historicalDates'],
   queryFn: async () => {
     const response = await fetch(`${config.apiUrl}/historical-dates`);
 
