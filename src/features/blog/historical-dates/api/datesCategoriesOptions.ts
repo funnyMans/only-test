@@ -7,7 +7,7 @@ export const dateCategoriesOptions = queryOptions<string[]>({
     const response = await fetch(
       `${config.apiUrl}/historical-dates/categories`
     );
-
-    return response.json();
+    const data = await response.json();
+    return data;
   },
 });
