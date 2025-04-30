@@ -1,4 +1,4 @@
-import { config } from '@/shared/lib/config/config';
+// import { config } from '@/shared/lib/config/config';
 import { NextResponse } from 'next/server';
 
 const handler = async (req: Request) => {
@@ -6,21 +6,18 @@ const handler = async (req: Request) => {
 
   if (method === 'GET') {
     try {
-      const url = `${config.domain}/mock/historical-dates.json`;
+      const url = `https://onlyfunnytest-n80dpj0iq-funnymans-projects.vercel.app/mock/project.json`;
+
       const res = await fetch(url);
-
       const data = await res.json();
-
-      const categories = Object.keys(data).map((item: string) => item);
-
-      return NextResponse.json(categories, {
+      return NextResponse.json(data, {
         status: 200,
         headers: {
           'Content-Type': 'application/json',
         },
       });
-    } catch (error: any) {
-      return new Response(error.message as BodyInit, { status: 500 });
+    } catch (error) {
+      return new Response(error as BodyInit, { status: 500 });
     }
   }
 
