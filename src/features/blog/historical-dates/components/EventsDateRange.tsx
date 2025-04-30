@@ -4,6 +4,7 @@ import DateRangeView from '@/shared/ui/custom/DateRangeView';
 
 const EventsDateRange = () => {
   const { currentCategory, historicalEvents } = useHistoricalDatesQuery();
+
   const category = historicalEvents[currentCategory];
 
   const length = category.length;

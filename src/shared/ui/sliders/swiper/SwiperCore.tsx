@@ -105,7 +105,7 @@ IProps) => {
           onlyInViewport: false, // Allow keyboard navigation even outside the viewport
         }}
       >
-        {slides.map((slide, index) => (
+        {slides?.map((slide, index) => (
           <SwiperSlide
             key={index}
             virtualIndex={index}
