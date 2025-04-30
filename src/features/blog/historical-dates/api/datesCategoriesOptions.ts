@@ -1,13 +1,19 @@
-import { config } from '@/shared/lib/config/config';
 import { queryOptions } from '@tanstack/react-query';
 
 export const dateCategoriesOptions = queryOptions<string[]>({
-  queryKey: ['dates-categories'],
+  queryKey: ['datesCategories'],
   queryFn: async () => {
-    const response = await fetch(
-      `${config.apiUrl}/historical-dates/categories`
-    );
+    try {
+      const url = `https://funnymans.github.io/OnlyDigitalTask/historical-dates.json`;
 
-    return response.json();
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const categories = Object.keys(data).map((item: string) => item);
+      return categories;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   },
 });

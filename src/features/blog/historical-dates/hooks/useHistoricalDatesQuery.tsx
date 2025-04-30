@@ -1,4 +1,5 @@
 'use client';
+
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { dateCategoriesOptions } from '../api/datesCategoriesOptions';
 import { historicalDatesOptions } from '../api/historicalDatesOptions';

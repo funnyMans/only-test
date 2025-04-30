@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -18,6 +19,7 @@ const ToolSlideItemContent = ({
         alt={slide?.name || `logo-image-${index}`}
         width={100}
         height={100}
+        priority
       />
       <ToolNameSC>
         <Link href={slide?.website || '/'} target='_blank'>

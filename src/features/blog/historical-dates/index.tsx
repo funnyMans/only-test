@@ -6,7 +6,8 @@ import EventsDateRange from './components/EventsDateRange';
 import DatesHeading from './components/DatesHeading';
 
 import { FlexContainerSC } from '@/shared/ui/containers/FlexContainer';
-const HistoricalDatesArea = () => {
+
+const HistoricalDatesArea = async () => {
   return (
     <FlexContainerSC
       $direction='column'
