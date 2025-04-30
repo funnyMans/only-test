@@ -7,6 +7,7 @@ const handler = async (req: Request) => {
   if (method === 'GET') {
     try {
       const url = `${config.domain}/mock/historical-dates.json`;
+      console.log({ url });
 
       const res = await fetch(url);
 
@@ -19,7 +20,7 @@ const handler = async (req: Request) => {
         },
       });
     } catch (error) {
-      return new Response(JSON.stringify(error), { status: 500 });
+      return new Response(error as BodyInit, { status: 500 });
     }
   }
 

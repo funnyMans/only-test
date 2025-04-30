@@ -17,7 +17,7 @@ const handler = async (req: Request) => {
         },
       });
     } catch (error) {
-      return new Response(JSON.stringify(error), { status: 500 });
+      return new Response(error as BodyInit, { status: 500 });
     }
   }
 
