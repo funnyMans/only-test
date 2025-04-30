@@ -2,17 +2,20 @@ import { queryOptions } from '@tanstack/react-query';
 
 // import { config } from '@/shared/lib/config/config';
 import { IProject } from '@/shared/types/team';
+import { config } from '@/shared/lib/config/config';
 
 export const generalInfoOptions = queryOptions<IProject>({
-  queryKey: ['general-info'],
+  queryKey: ['generalInfo'],
   queryFn: async () => {
     try {
       const response = await fetch(
-        `https://github.com/funnyMans/only-test/blob/main/public/mock/project.json`
+        `${config.apiUrl}/general-info` // Replace with your API endpoin
       );
-      return response.json();
+      const data = await response.json();
+
+      return data;
     } catch (error) {
-      return JSON.stringify(error);
+      return error;
     }
   },
 });

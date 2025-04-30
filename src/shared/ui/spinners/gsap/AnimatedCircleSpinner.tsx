@@ -1,4 +1,5 @@
 'use client';
+
 import { PropsWithChildren, useRef } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 import { useGSAP } from '@gsap/react';

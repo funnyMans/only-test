@@ -1,20 +1,21 @@
 'use client';
 
 import { GridMainContentSC } from '@/shared/ui/containers/GridLayout';
-import React, { Suspense, useState } from 'react';
+import { Suspense, useState } from 'react';
 import AnimationsContent from './components/Animations';
 import IntroGeneralInfo from './components/IntroGeneralInfo';
 import AnimatedCircleSpinnerGSAP from '@/shared/ui/spinners/gsap/AnimatedCircleSpinner';
 import TaskCheckButton from './components/TaskCheckButton';
-import useGeneralInfo from './hooks/useGeneralInfo';
 import ToolsGallery from './components/ToolsGallery';
 
 const weather = ['calm', 'snow', 'rain', 'sunny'];
 const showCaseItems_3 = ['1', '2', '3'];
 const showCaseItems_5 = ['1', '2', '3', '4', '5'];
 
+import useGeneralInfo from './hooks/useGeneralInfo';
 const IntroContentWrapper = () => {
   const { company: team, tools } = useGeneralInfo();
+
   const [animation, setAnimation] = useState(weather[0]);
 
   return (

@@ -5,14 +5,14 @@ const handler = async (req: Request) => {
 
   if (method === 'GET') {
     try {
-      // const url = `https://onlyfunnytest-n80dpj0iq-funnymans-projects.vercel.app/mock/historical-dates.json`;
-      // const res = await fetch(url);
+      const url = `https://funnymans.github.io/OnlyDigitalTask/historical-dates.json`;
+      const res = await fetch(url);
 
-      // const data = await res.json();
+      const data = await res.json();
 
-      // const categories = Object.keys(data).map((item: string) => item);
+      const categories = Object.keys(data).map((item: string) => item);
 
-      return NextResponse.json(['cinema', 'literature', 'sport'], {
+      return NextResponse.json(categories, {
         status: 200,
         headers: {
           'Content-Type': 'application/json',

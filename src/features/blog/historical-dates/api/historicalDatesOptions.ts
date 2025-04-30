@@ -8,7 +8,7 @@ export const historicalDatesOptions = queryOptions<
   queryKey: ['historicalDates'],
   queryFn: async () => {
     const response = await fetch(`${config.apiUrl}/historical-dates`);
-
-    return response.json();
+    const data = await response.json();
+    return data;
   },
 });
