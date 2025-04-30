@@ -1,7 +1,7 @@
 'use client';
 
 import { GridMainContentSC } from '@/shared/ui/containers/GridLayout';
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import AnimationsContent from './components/Animations';
 import IntroGeneralInfo from './components/IntroGeneralInfo';
 import AnimatedCircleSpinnerGSAP from '@/shared/ui/spinners/gsap/AnimatedCircleSpinner';
@@ -19,7 +19,7 @@ const IntroContentWrapper = () => {
   const [animation, setAnimation] = useState(weather[0]);
 
   return (
-    <Suspense>
+    <>
       <ToolsGallery tools={tools} speed={4000} delaySlide={4000} />
       <GridMainContentSC>
         <IntroGeneralInfo team={team}>
@@ -52,7 +52,7 @@ const IntroContentWrapper = () => {
         reverseDirection
       />
       <AnimationsContent animationName={animation} />
-    </Suspense>
+    </>
   );
 };
 

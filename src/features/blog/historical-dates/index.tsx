@@ -6,7 +6,6 @@ import EventsDateRange from './components/EventsDateRange';
 import DatesHeading from './components/DatesHeading';
 
 import { FlexContainerSC } from '@/shared/ui/containers/FlexContainer';
-import { Suspense } from 'react';
 
 const HistoricalDatesArea = async () => {
   return (
@@ -19,12 +18,10 @@ const HistoricalDatesArea = async () => {
     >
       <DatesHeading />
       <HistoricalDatesContextProvider>
-        <Suspense fallback={<>Loading</>}>
-          <CategoriesAnimatedSpinner controls withLabel />
-          <EventsDateRange />
-          <CurrentCategoryView />
-          <HistoricalDatesSlider />
-        </Suspense>
+        <CategoriesAnimatedSpinner controls withLabel />
+        <EventsDateRange />
+        <CurrentCategoryView />
+        <HistoricalDatesSlider />
       </HistoricalDatesContextProvider>
     </FlexContainerSC>
   );
