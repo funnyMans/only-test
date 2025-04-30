@@ -5,13 +5,13 @@ const handler = async (req: Request) => {
 
   if (method === 'GET') {
     try {
-      const url = `/mock/historicalDates.json`;
+      const url = `/mock/historical-dates.json`;
 
       const res = await fetch(url);
 
       const data = await res.json();
 
-      return NextResponse.json(data, {
+      return NextResponse.json(JSON.stringify(data), {
         status: 200,
         headers: {
           'Content-Type': 'application/json',

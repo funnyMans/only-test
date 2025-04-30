@@ -5,14 +5,14 @@ const handler = async (req: Request) => {
 
   if (method === 'GET') {
     try {
-      const url = `/mock/historicalDates.json`;
+      const url = `/mock/historical-dates.json`;
       const res = await fetch(url);
 
       const data = await res.json();
 
       const categories = Object.keys(data).map((item: string) => item);
 
-      return NextResponse.json(categories, {
+      return NextResponse.json(JSON.stringify(categories), {
         status: 200,
         headers: {
           'Content-Type': 'application/json',
