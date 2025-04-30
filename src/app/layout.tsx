@@ -30,11 +30,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <TanstackQueryProvider>
-          <StyledProvider>
-            {/* <Suspense fallback={<RootLoading />}> */}
-            {children}
-            {/* </Suspense> */}
-          </StyledProvider>
+          <StyledProvider>{children}</StyledProvider>
         </TanstackQueryProvider>
       </body>
     </html>

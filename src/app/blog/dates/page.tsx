@@ -14,11 +14,11 @@ const TestPage = () => {
 
   return (
     <PageContainerSC>
-      <Suspense fallback={<>loading...</>}>
-        <HydrationBoundary state={dehydrate(queryClient)}>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Suspense fallback={<>loading...</>}>
           <HistoricalDatesArea />
-        </HydrationBoundary>
-      </Suspense>
+        </Suspense>
+      </HydrationBoundary>
     </PageContainerSC>
   );
 };
