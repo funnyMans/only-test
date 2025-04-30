@@ -19,8 +19,8 @@ const handler = async (req: Request) => {
           'Content-Type': 'application/json',
         },
       });
-    } catch (error) {
-      return new Response(error as BodyInit, { status: 500 });
+    } catch (error: any) {
+      return new Response(error.message as BodyInit, { status: 500 });
     }
   }
 
