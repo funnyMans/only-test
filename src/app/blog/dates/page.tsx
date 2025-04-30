@@ -1,18 +1,21 @@
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
-import LandingPageContent from '@/features/landing';
-import { generalInfoOptions } from '@/features/landing/intro/api/generalInfoOptions';
+import { historicalDatesOptions } from '@/features/blog/historical-dates/api/historicalDatesOptions';
 import { getQueryClient } from '@/shared/lib/tanstack-react-query/get-query-client';
 import { PageContainerSC } from '@/shared/ui/containers/PageContainer';
+import HistoricalDatesArea from '@/features/blog/historical-dates';
 
-export default function Home() {
+const TestPage = () => {
   const queryClient = getQueryClient();
-  void queryClient.prefetchQuery(generalInfoOptions);
+  void queryClient.prefetchQuery(historicalDatesOptions);
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <PageContainerSC>
-        <LandingPageContent />
+        <HistoricalDatesArea />
       </PageContainerSC>
     </HydrationBoundary>
   );
-}
+};
+
+export default TestPage;
