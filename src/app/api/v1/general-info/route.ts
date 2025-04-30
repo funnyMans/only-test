@@ -11,7 +11,7 @@ const handler = async (req: Request) => {
       // const res = await fetch(url);
       // const data = await res.json();
       return NextResponse.json(
-        {
+        JSON.stringify({
           company: {
             name: 'Only Digital',
             website: 'https://only.digital',
@@ -59,7 +59,7 @@ const handler = async (req: Request) => {
               website: 'https://styled-components.com',
             },
           ],
-        },
+        }),
         {
           status: 200,
           headers: {
