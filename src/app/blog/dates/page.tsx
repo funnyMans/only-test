@@ -1,4 +1,4 @@
-// import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
 import { historicalDatesOptions } from '@/features/blog/historical-dates/api/historicalDatesOptions';
 import { getQueryClient } from '@/shared/lib/tanstack-react-query/get-query-client';
@@ -10,11 +10,11 @@ const TestPage = () => {
   void queryClient.prefetchQuery(historicalDatesOptions);
 
   return (
-    // <HydrationBoundary state={dehydrate(queryClient)}>
-    <PageContainerSC>
-      <HistoricalDatesArea />
-    </PageContainerSC>
-    // </HydrationBoundary>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <PageContainerSC>
+        <HistoricalDatesArea />
+      </PageContainerSC>
+    </HydrationBoundary>
   );
 };
 

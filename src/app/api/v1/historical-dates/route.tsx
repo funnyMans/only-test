@@ -1,13 +1,11 @@
 import { NextResponse } from 'next/server';
-import { config } from '@/shared/lib/config/config';
 
 const handler = async (req: Request) => {
   const { method } = req;
 
   if (method === 'GET') {
     try {
-      const url = `${config.domain}/mock/historical-dates.json`;
-      console.log({ url });
+      const url = `/mock/historical-dates.json`;
 
       const res = await fetch(url);
 

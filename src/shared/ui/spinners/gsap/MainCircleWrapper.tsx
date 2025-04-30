@@ -43,7 +43,6 @@ const MainCircleWrapper = ({
   const activeRadius = useMemo(() => {
     return isNotHugeScreen ? (radius * 3) / 4 : radius;
   }, [isNotHugeScreen, radius]);
-  console.log({ isNotHugeScreen, activeRadius });
 
   const angles = getAngles(items.length);
 
