@@ -10,16 +10,9 @@ export default function Home() {
   void queryClient.prefetchQuery(generalInfoOptions);
   return (
     // <HydrationBoundary state={dehydrate(queryClient)}>
-<<<<<<< Updated upstream
-      <PageContainerSC>
-        <LandingPageContent />
-      </PageContainerSC>
-    {/* </HydrationBoundary> */}
-=======
     <PageContainerSC>
       <LandingPageContent />
     </PageContainerSC>
     // </HydrationBoundary>
->>>>>>> Stashed changes
   );
 }
