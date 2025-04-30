@@ -5,10 +5,12 @@ import { getQueryClient } from '@/shared/lib/tanstack-react-query/get-query-clie
 import { PageContainerSC } from '@/shared/ui/containers/PageContainer';
 import HistoricalDatesArea from '@/features/blog/historical-dates';
 import { Suspense } from 'react';
+import { dateCategoriesOptions } from '@/features/blog/historical-dates/api/datesCategoriesOptions';
 
 const TestPage = () => {
   const queryClient = getQueryClient();
   void queryClient.prefetchQuery(historicalDatesOptions);
+  void queryClient.prefetchQuery(dateCategoriesOptions);
 
   return (
     <PageContainerSC>
