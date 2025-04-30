@@ -9,7 +9,7 @@ const handler = async (req: Request) => {
 
       const res = await fetch(url);
       const data = await res.json();
-      return NextResponse.json(JSON.stringify(data), {
+      return NextResponse.json(data, {
         status: 200,
         headers: {
           'Content-Type': 'application/json',
