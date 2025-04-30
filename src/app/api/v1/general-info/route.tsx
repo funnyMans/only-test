@@ -1,3 +1,4 @@
+import { config } from '@/shared/lib/config/config';
 import { NextResponse } from 'next/server';
 
 const handler = async (req: Request) => {
@@ -5,7 +6,7 @@ const handler = async (req: Request) => {
 
   if (method === 'GET') {
     try {
-      const url = `/mock/project.json`;
+      const url = `${config.domain}/mock/project.json`;
 
       const res = await fetch(url);
       const data = await res.json();
