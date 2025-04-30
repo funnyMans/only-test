@@ -78,7 +78,7 @@ const MainCircleWrapper = ({
             className='circle'
           >
             {children}
-            {items.map((item, i) => {
+            {items?.map((item, i) => {
               const rad = (angles[i] * Math.PI) / 180;
               const x = activeRadius * Math.cos(rad);
               const y = activeRadius * Math.sin(rad);

@@ -10,7 +10,7 @@ const ChildrenWithProps = ({
 }: PropsWithChildren<InjectedProps>) => {
   return (
     <>
-      {React.Children.map(children, (child) =>
+      {React.Children?.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(child, { ...props })
           : child
