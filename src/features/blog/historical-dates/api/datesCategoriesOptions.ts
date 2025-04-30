@@ -2,12 +2,17 @@ import { config } from '@/shared/lib/config/config';
 import { queryOptions } from '@tanstack/react-query';
 
 export const dateCategoriesOptions = queryOptions<string[]>({
-  queryKey: ['dates-categories'],
+  queryKey: ['datesCategories'],
   queryFn: async () => {
-    const response = await fetch(
-      `${config.apiUrl}/historical-dates/categories`
-    );
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch(
+        `${config.apiUrl}/historical-dates/categories`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   },
 });

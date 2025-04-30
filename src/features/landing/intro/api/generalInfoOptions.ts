@@ -15,7 +15,8 @@ export const generalInfoOptions = queryOptions<IProject>({
 
       return data;
     } catch (error) {
-      return error;
+      console.log(error);
+      return [];
     }
   },
 });
