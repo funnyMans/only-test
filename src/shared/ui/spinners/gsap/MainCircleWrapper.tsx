@@ -1,8 +1,7 @@
 'use client';
-import { PropsWithChildren, useMemo, useRef, useState } from 'react';
-import { useMediaQuery } from 'usehooks-ts';
+import { PropsWithChildren, useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 
 import SpinnerItem from './SpinnerItem';
 import SpinnerControls from './SpinnerControls';
@@ -38,12 +37,6 @@ const MainCircleWrapper = ({
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [activeRotation, setActiveRotation] = useState(0);
 
-  const isNotHugeScreen = useMediaQuery('(max-width:1200px)');
-
-  const activeRadius = useMemo(() => {
-    return isNotHugeScreen ? (radius * 3) / 4 : radius;
-  }, [isNotHugeScreen, radius]);
-
   const angles = getAngles(items.length);
 
   useGSAP(() => {
@@ -55,51 +48,50 @@ const MainCircleWrapper = ({
   }, [activeRotation]);
 
   const handleClick = (index: number) => {
-    const angle = angles[index];
-    const targetAngle = -60; // rotate clicked dot to top
-    const rotateTo = targetAngle - angle;
-
     if (activeIndex !== index) {
+      const angle = angles[index];
+      const targetAngle = -60; // rotate clicked dot to top
+      const rotateTo = targetAngle - angle;
+
       setActiveIndex(index);
-      handleCategorySelection?.(items[index]);
       setActiveRotation(rotateTo);
+      handleCategorySelection?.(items[index]);
 
       handler?.(items[index]);
     }
   };
 
-  return (
+  return isVisible ? (
     <SelfCenteredBoxSC>
-      {isVisible && (
-        <FlexContainerSC ref={circleRef}>
-          <GsapMainCircleSC
-            $radius={activeRadius}
-            $rotate={activeRotation}
-            className='circle'
-          >
-            {children}
-            {items?.map((item, i) => {
-              const rad = (angles[i] * Math.PI) / 180;
-              const x = activeRadius * Math.cos(rad);
-              const y = activeRadius * Math.sin(rad);
+      <FlexContainerSC ref={circleRef}>
+        <GsapMainCircleSC
+          $radius={radius}
+          $rotate={activeRotation}
+          className='circle'
+        >
+          {children}
+          {items.map((item, i) => {
+            const rad = (angles[i] * Math.PI) / 180;
+            const x = Math.floor(radius * Math.cos(rad));
+            const y = Math.floor(radius * Math.sin(rad));
+            const isActive = activeIndex === i;
 
-              return (
-                <SpinnerItem
-                  key={`${item}${i}`}
-                  item={item}
-                  index={i}
-                  rotation={{ x, y }}
-                  size={size}
-                  activeRotation={activeRotation}
-                  isActive={activeIndex === i}
-                  withLabel={withLabel}
-                  onClick={handleClick}
-                />
-              );
-            })}
-          </GsapMainCircleSC>
-        </FlexContainerSC>
-      )}
+            return (
+              <SpinnerItem
+                key={item}
+                item={item}
+                index={i}
+                rotation={{ x, y }}
+                size={size}
+                activeRotation={activeRotation}
+                isActive={isActive}
+                withLabel={withLabel}
+                onClick={handleClick}
+              />
+            );
+          })}
+        </GsapMainCircleSC>
+      </FlexContainerSC>
       {controls ? (
         <SpinnerControls
           activeIndex={activeIndex}
@@ -108,7 +100,7 @@ const MainCircleWrapper = ({
         />
       ) : null}
     </SelfCenteredBoxSC>
-  );
+  ) : null;
 };
 
 export default MainCircleWrapper;

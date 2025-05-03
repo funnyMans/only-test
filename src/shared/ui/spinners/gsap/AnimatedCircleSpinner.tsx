@@ -1,7 +1,6 @@
 'use client';
 
 import { PropsWithChildren, useRef } from 'react';
-import { useMediaQuery } from 'usehooks-ts';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 
@@ -25,13 +24,10 @@ const AnimatedCircleSpinnerGSAP = ({
   items,
   controls,
   withLabel,
-  isVisible = true,
+  isVisible,
   handler,
 }: RotatingDotCircleProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery('(max-width: 768px)');
-  const maybeMobileRadius = isMobile ? radius / 2 : radius;
-  const maybeMobileSize = isMobile ? size / 2 : size;
 
   useGSAP(
     () => {
@@ -47,11 +43,15 @@ const AnimatedCircleSpinnerGSAP = ({
   }
 
   return (
-    <GsapContainerSC $radius={radius} ref={containerRef}>
+    <GsapContainerSC
+      $radius={radius}
+      ref={containerRef}
+      className='circle-container'
+    >
       <MainCircleWrapper
-        radius={maybeMobileRadius}
+        radius={radius}
         items={items}
-        size={maybeMobileSize}
+        size={size}
         controls={controls}
         withLabel={withLabel}
         handler={handler}

@@ -27,10 +27,20 @@ const SpinnerControls = ({ activeIndex, length, handleClick }: IProps) => {
     <ControlsAreaSC>
       <ProgressCounter progress={activeIndex} total={length} />
       <ControlsWrapperSC>
-        <GsapSpinnerBtnSC onClick={handlePrev} $handler='prev'>
+        <GsapSpinnerBtnSC
+          onClick={handlePrev}
+          $handler='prev'
+          id='prev'
+          title='Previous'
+        >
           <LiaChevronLeftSolid fontSize={24} />
         </GsapSpinnerBtnSC>
-        <GsapSpinnerBtnSC onClick={handleNext} $handler='next'>
+        <GsapSpinnerBtnSC
+          onClick={handleNext}
+          $handler='next'
+          id='next'
+          title='Next'
+        >
           <LiaChevronRightSolid fontSize={24} />
         </GsapSpinnerBtnSC>
       </ControlsWrapperSC>

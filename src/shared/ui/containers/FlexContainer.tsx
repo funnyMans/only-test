@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 
 type FlexProps = {
+  $position: 'relative' | 'absolute' | 'fixed' | 'sticky';
   $padding: string;
   $margin: string;
   $direction: 'row' | 'column';
@@ -23,6 +24,7 @@ type FlexProps = {
 };
 
 export const FlexContainerSC = styled.div<Partial<FlexProps>>`
+  position: ${({ $position }) => $position || 'static'};
   padding: ${({ $padding }) => $padding || '0'};
   margin: ${({ $margin }) => $margin || '0'};
   width: ${({ $fullWidth, $width }) =>

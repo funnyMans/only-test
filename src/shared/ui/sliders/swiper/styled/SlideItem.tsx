@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 
 export type SlideItemStyleProps = {
@@ -31,5 +32,5 @@ export const SlideItemTitleSC = styled.div`
 
 export const SlideItemContentSC = styled.div`
   font-size: ${({ theme }) => theme.fontSizes[16]};
-  color: ${({ theme }) => theme.colors.blackBlue};
+  color: ${({ theme }) => theme.text.secondary};
 `;

@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 
 export const SwiperContainerSC = styled.div`
@@ -13,10 +14,11 @@ export const SwiperContainerSC = styled.div`
   }
   @media (max-width: 768px) {
     border-top: 1px solid #cccccc;
+    width: 100%;
     height: 270px;
   }
 
   @media (max-height: 768px) {
-    height: fit-content;
+    height: 150px;
   }
 `;

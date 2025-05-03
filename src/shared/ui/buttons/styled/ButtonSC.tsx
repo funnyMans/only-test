@@ -2,6 +2,10 @@
 import styled from 'styled-components';
 
 export const ButtonSC = styled.button`
+  width: fit-content;
+  height: fit-content;
+  min-width: 48px;
+  min-height: 32px;
   padding: 4px 8px;
   background-color: ${({ theme }) => theme.text.primary};
   color: ${({ theme }) => theme.text.inverse};
