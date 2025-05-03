@@ -1,18 +1,29 @@
 'use client';
 
-import { GridMainContentSC } from '@/shared/ui/containers/GridLayout';
-import { useState } from 'react';
-import AnimationsContent from './components/Animations';
+import { Suspense, useState } from 'react';
+import dynamic from 'next/dynamic';
+
 import IntroGeneralInfo from './components/IntroGeneralInfo';
-import AnimatedCircleSpinnerGSAP from '@/shared/ui/spinners/gsap/AnimatedCircleSpinner';
 import TaskCheckButton from './components/TaskCheckButton';
+import AnimationsContent from './components/Animations';
 import ToolsGallery from './components/ToolsGallery';
+import useGeneralInfo from './hooks/useGeneralInfo';
+import {
+  GridAsideContentContentSC,
+  GridMainContentSC,
+} from '@/shared/ui/containers/GridLayout';
+
+const DynamicAnimatedCircleSpinnerGSAP = dynamic(
+  () => import('@/shared/ui/spinners/gsap/AnimatedCircleSpinner'),
+  {
+    ssr: false,
+  }
+);
 
 const weather = ['calm', 'snow', 'rain', 'sunny'];
 const showCaseItems_3 = ['1', '2', '3'];
 const showCaseItems_5 = ['1', '2', '3', '4', '5'];
 
-import useGeneralInfo from './hooks/useGeneralInfo';
 const IntroContentWrapper = () => {
   const { company: team, tools } = useGeneralInfo();
 
@@ -20,37 +31,48 @@ const IntroContentWrapper = () => {
 
   return (
     <>
-      <ToolsGallery tools={tools} speed={4000} delaySlide={4000} />
+      <GridAsideContentContentSC $leftOrRight='left'>
+        <ToolsGallery tools={tools} speed={4000} delaySlide={4000} />
+      </GridAsideContentContentSC>
       <GridMainContentSC>
         <IntroGeneralInfo team={team}>
-          <AnimatedCircleSpinnerGSAP
-            items={showCaseItems_3}
-            radius={100}
-            size={10}
-            handler={setAnimation}
-          />
-          <AnimatedCircleSpinnerGSAP
-            items={weather}
-            radius={150}
-            size={15}
-            handler={setAnimation}
-          >
-            <TaskCheckButton />
-          </AnimatedCircleSpinnerGSAP>
-          <AnimatedCircleSpinnerGSAP
-            items={showCaseItems_5}
-            radius={100}
-            size={10}
-            handler={setAnimation}
-          />
+          <Suspense fallback={<div>Loading spinner...</div>}>
+            <DynamicAnimatedCircleSpinnerGSAP
+              items={showCaseItems_3}
+              radius={100}
+              size={10}
+              isVisible
+            />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            <DynamicAnimatedCircleSpinnerGSAP
+              items={weather}
+              radius={150}
+              size={15}
+              handler={setAnimation}
+              isVisible
+            >
+              <TaskCheckButton />
+            </DynamicAnimatedCircleSpinnerGSAP>
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            <DynamicAnimatedCircleSpinnerGSAP
+              items={showCaseItems_5}
+              radius={100}
+              size={10}
+              isVisible
+            />
+          </Suspense>
         </IntroGeneralInfo>
       </GridMainContentSC>
-      <ToolsGallery
-        tools={tools}
-        speed={5000}
-        delaySlide={5000}
-        reverseDirection
-      />
+      <GridAsideContentContentSC $leftOrRight='right'>
+        <ToolsGallery
+          tools={tools}
+          speed={5000}
+          delaySlide={5000}
+          reverseDirection
+        />
+      </GridAsideContentContentSC>
       <AnimationsContent animationName={animation} />
     </>
   );

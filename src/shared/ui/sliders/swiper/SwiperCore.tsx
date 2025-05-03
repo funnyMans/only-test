@@ -17,16 +17,17 @@ import {
 } from 'swiper/modules';
 import { SwiperOptions } from 'swiper/types';
 
+import SwiperControls from './SwiperControls';
+import { SlideItemStyleProps } from './styled/SlideItem';
+import ChildrenWithProps from '../../containers/ChildrenWithProps';
+
+import { HistoryEvent } from '@/shared/types/historical-dates';
+import { ITool } from '@/shared/types/team';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/virtual';
-
-import { HistoryEvent } from '@/shared/types/historical-dates';
-import SwiperControls from './SwiperControls';
-import { SlideItemStyleProps } from './styled/SlideItem';
-import ChildrenWithProps from '../../containers/ChildrenWithProps';
-import { ITool } from '@/shared/types/team';
 
 interface SwiperProps {
   slides: HistoryEvent[] | ITool[]; // Array of slide items

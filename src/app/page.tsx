@@ -5,7 +5,7 @@ import { getQueryClient } from '@/shared/lib/tanstack-react-query/get-query-clie
 import { PageContainerSC } from '@/shared/ui/containers/PageContainer';
 import LandingPageContent from '@/features/landing';
 
-export default async function Home() {
+export default function Home() {
   const queryClient = getQueryClient();
   void queryClient.prefetchQuery(generalInfoOptions);
   return (

@@ -1,13 +1,14 @@
+'use client';
 import styled from 'styled-components';
 
 export const GsapSpinnerBtnSC = styled.button<{ $handler: string }>`
-  cursor: pointer;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: transparent;
   border: ${({ theme }) => theme.text.secondary + '40'} 2px solid;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
   & svg {
     position: relative;
     color: ${({ theme }) => theme.text.secondary};

@@ -29,3 +29,7 @@ export const GridMainContentSC = styled.div`
   border-right: ${({ theme }) => `1px solid
       ${theme.colors.independence}20`};
 `;
+
+export const GridAsideContentContentSC = styled.div<{ $leftOrRight: string }>`
+  grid-area: ${({ $leftOrRight }) => `${$leftOrRight}Aside`};
+`;

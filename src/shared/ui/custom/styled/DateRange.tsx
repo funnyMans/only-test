@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 
 type DateRangeViewProps = {
@@ -45,10 +46,10 @@ export const DateRangeViewValueSC = styled.span<RangeValueProps>`
     border-radius: 4px;
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1300px) or (max-height: 700px) {
     font-size: ${({ theme }) => theme.fontSizes[160]};
   }
-  @media (max-width: 540px) {
+  @media (max-width: 540px) or (max-height: 540px) {
     font-size: ${({ theme }) => theme.fontSizes[88]};
   }
 `;

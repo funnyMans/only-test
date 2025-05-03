@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react'; // Use the useGSAP hook
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import {
   EffectContainer,
   EffectWrapper,
@@ -14,7 +14,7 @@ interface EffectProps {
   numberOfDrops?: number;
 }
 
-const GsapRainEffect: React.FC<EffectProps> = ({ numberOfDrops = 500 }) => {
+const GsapRainEffect: React.FC<EffectProps> = ({ numberOfDrops = 200 }) => {
   const rainContainerRef = useRef<HTMLDivElement>(null);
 
   const raindrops = Array.from({ length: numberOfDrops }).map((_, index) => {

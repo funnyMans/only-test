@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react'; // Use the useGSAP hook
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { EffectContainer, EffectWrapper, Snowdrop } from './styled/Weather';
 
 interface EffectProps {
