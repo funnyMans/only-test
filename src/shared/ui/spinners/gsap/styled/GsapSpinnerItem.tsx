@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 
 type Rotation = {
@@ -12,6 +13,7 @@ type SpinnerItemProps = {
 };
 
 export const GsapSpinnerItemSC = styled.div<SpinnerItemProps>`
+  z-index: 100;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -19,7 +21,6 @@ export const GsapSpinnerItemSC = styled.div<SpinnerItemProps>`
     $isIndexActive ? `${$size * 7}px` : `${$size}px`};
   height: ${({ $size, $isIndexActive }) =>
     $isIndexActive ? `${$size * 7}px` : `${$size}px`};
-  transform-origin: center center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,6 +64,25 @@ export const GsapSpinnerItemSC = styled.div<SpinnerItemProps>`
   &:hover > p {
     display: inline;
     color: ${({ theme }) => theme.text.primary};
+  }
+
+  @media (max-width: 768px) {
+    width: ${({ $size, $isIndexActive }) =>
+      $isIndexActive ? `${($size * 7) / 2}px` : `${$size}px`};
+    height: ${({ $size, $isIndexActive }) =>
+      $isIndexActive ? `${($size * 7) / 2}px` : `${$size}px`};
+    transform: ${({ $rotation, $activeRotation }) =>
+      `translate(-50%, -50%) translate(${$rotation.x / 2}px, ${
+        $rotation.y / 2
+      }px) rotate(${-$activeRotation}deg)`};
+    &:hover {
+      background-color: ${({ theme }) => theme.bg.vice};
+      transform: ${({ $rotation, $activeRotation, $isIndexActive }) =>
+        !$isIndexActive &&
+        `translate(${$rotation.x / 2}px, ${
+          $rotation.y / 2
+        }px) rotate(${-$activeRotation}deg) scale(2)`};
+    }
   }
 `;
 

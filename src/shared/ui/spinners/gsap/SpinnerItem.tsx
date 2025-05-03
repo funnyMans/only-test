@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback } from 'react';
 import {
   GsapSpinnerItemSC,
@@ -21,11 +23,13 @@ const SpinnerItem = ({
   index,
   isActive,
   rotation,
-  withLabel,
   activeRotation,
+  withLabel,
   onClick,
 }: IProps) => {
-  const handleItemClick = useCallback(() => onClick(index), [index, onClick]);
+  const handleItemClick = useCallback(() => {
+    onClick(index);
+  }, [index, onClick]);
 
   return (
     <GsapSpinnerItemSC
@@ -38,7 +42,7 @@ const SpinnerItem = ({
       onClick={handleItemClick}
     >
       <SpinnerItemContentSC className='dot-content' $isActive={isActive}>
-        {withLabel ? index + 1 : item}
+        {item}
       </SpinnerItemContentSC>
       {isActive && withLabel && <SpinnerItemLabelSC>{item}</SpinnerItemLabelSC>}
     </GsapSpinnerItemSC>

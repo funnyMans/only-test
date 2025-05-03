@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 
 type MainCircleProps = {
@@ -21,5 +22,10 @@ export const GsapMainCircleSC = styled.div<MainCircleProps>`
   & > a,
   & .circle {
     transform: rotate(${({ $rotate }) => -$rotate}deg);
+  }
+
+  @media (max-width: 768px) {
+    width: ${({ $radius }) => $radius + 'px'};
+    height: ${({ $radius }) => $radius + 'px'};
   }
 `;

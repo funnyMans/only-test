@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 
 export const ControlsAreaSC = styled.div`
@@ -14,7 +15,7 @@ export const ControlsAreaSC = styled.div`
   }
 
   @media (max-height: 768px) {
-    bottom: 100px;
+    bottom: 160px;
   }
 `;
 

@@ -1,11 +1,14 @@
 'use client';
 
+import { useDarkMode } from 'usehooks-ts';
 import { ThemeProvider } from 'styled-components';
+
+import StyledComponentsRegistry from './registry';
 import lightTheme, { darkTheme } from './theme';
 import GlobalStyles from './GlobalStyles';
-import { useDarkMode } from 'usehooks-ts';
-import ThemeToggler from '@/shared/ui/buttons/ThemeToggler';
+
 import HomePageBtn from '@/shared/ui/buttons/HomePageBtn';
+import ThemeToggler from '@/shared/ui/buttons/ThemeToggler';
 
 const StyledProvider = (props: React.PropsWithChildren) => {
   const { isDarkMode } = useDarkMode({ initializeWithValue: false });
@@ -13,10 +16,12 @@ const StyledProvider = (props: React.PropsWithChildren) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <HomePageBtn />
-      <ThemeToggler />
-      {props.children}
+      <StyledComponentsRegistry>
+        <GlobalStyles />
+        <HomePageBtn />
+        <ThemeToggler />
+        {props.children}
+      </StyledComponentsRegistry>
     </ThemeProvider>
   );
 };

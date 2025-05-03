@@ -5,6 +5,9 @@ export const HeadingSC = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes[56]};
   font-weight: 700;
   color: ${({ theme }) => theme.text.primary};
+  @media (max-height: 500px) {
+    font-size: ${({ theme }) => theme.fontSizes[24]};
+  }
 `;
 
 export const SubHeadingSC = styled.h2<{ $fontSize?: number }>`
@@ -18,5 +21,8 @@ export const SubHeadingSC = styled.h2<{ $fontSize?: number }>`
   &:hover,
   &:active {
     scale: 1.05;
+  }
+  @media (max-width: 768px) or (max-height: 500px) {
+    font-size: ${({ theme }) => theme.fontSizes[16]};
   }
 `;

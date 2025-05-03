@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ButtonSC } from './ButtonSC';
 
 export const HomeBtnSC = styled(ButtonSC)`
-  position: absolute;
+  position: fixed;
   top: 2vh;
   left: 4vw;
   z-index: 1000;

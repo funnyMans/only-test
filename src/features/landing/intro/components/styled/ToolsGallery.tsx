@@ -1,13 +1,16 @@
+'use client';
 import styled from 'styled-components';
 
 export const ToolGallerySC = styled.div`
-  width: 100%;
-  height: 100%;
   display: grid;
   grid-template-columns: minmax(120px, 1fr);
   padding: 1rem;
   padding-top: 5rem;
   z-index: 3;
+  & > div {
+    width: 180px;
+    height: 100vh;
+  }
 `;
 
 export const ToolCardSC = styled.div`

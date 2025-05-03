@@ -42,8 +42,8 @@ export const Raindrop = styled.div`
 `;
 
 export const SplatSC = styled.div`
-  width: 15px;
-  height: 10px;
+  width: 20px;
+  height: 15px;
   border-top: ${({ theme }) => `2px dotted ${theme.text.primary}`};
   border-radius: 50%;
   opacity: 1;

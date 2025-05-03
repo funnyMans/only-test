@@ -4,7 +4,7 @@ import { IntroInfoContentSC, IntroInfoSC } from './styled/IntroInfoSC';
 
 import { HeadingSC, SubHeadingSC } from '@/shared/ui/typography/Heading';
 import { SelfCenteredBoxSC } from '@/shared/ui/containers/SelfCenteredBox';
-import { PargraphSC } from '@/shared/ui/typography/Text';
+import { ParagraphSC } from '@/shared/ui/typography/Text';
 import { ICompany } from '@/shared/types/team';
 
 interface IProps {
@@ -23,7 +23,7 @@ const TeamDetails = ({ team }: IProps) => {
               {team.name}
             </Link>
           </SubHeadingSC>
-          <PargraphSC>{team.description}</PargraphSC>
+          <ParagraphSC>{team.description}</ParagraphSC>
         </IntroInfoContentSC>
       </IntroInfoSC>
       <IntroInfoSC>
@@ -34,7 +34,7 @@ const TeamDetails = ({ team }: IProps) => {
               {developer.name}
             </Link>
           </SubHeadingSC>
-          <PargraphSC>{developer.role}</PargraphSC>
+          <ParagraphSC>{developer.role}</ParagraphSC>
         </IntroInfoContentSC>
       </IntroInfoSC>
     </SelfCenteredBoxSC>

@@ -1,6 +1,6 @@
 'use client';
-import { ButtonSC } from '@/shared/ui/buttons/styled/ButtonSC';
 import styled from 'styled-components';
+import { ButtonSC } from '@/shared/ui/buttons/styled/ButtonSC';
 
 export const TaskCheckBtnSC = styled(ButtonSC)`
   padding: 1rem;
