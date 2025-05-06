@@ -15,7 +15,7 @@ const GsapSnowEffect = ({ numberOfDrops = 200 }: EffectProps) => {
     () => {
       gsap.utils.toArray<Element>('.snowdrop').forEach((drop) => {
         // Randomize the initial and animation properties using gsap.utils.random
-        const randomX = gsap.utils.random(0, 100); // Random horizontal position
+        const randomX = gsap.utils.random(10, 90); // Random horizontal position
         const randomY = gsap.utils.random(0, 5); // Random vertical start position above viewport
         const ground = gsap.utils.random(70, 90); // Random duration for falling animation
         const scale = gsap.utils.random(0.5, 1); // Random scale of snowdrop
