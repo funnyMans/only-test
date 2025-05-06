@@ -22,6 +22,7 @@ export const SlideItemSC = styled.div<Partial<SlideItemStyleProps>>`
   gap: ${({ $gap }) => $gap || '5px'};
   background-color: ${({ theme }) => theme.bg.transparent};
   font-size: ${({ theme }) => theme.fontSizes[16]};
+  overflow: hidden;
 `;
 
 export const SlideItemTitleSC = styled.div`

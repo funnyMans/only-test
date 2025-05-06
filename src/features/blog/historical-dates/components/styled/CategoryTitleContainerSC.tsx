@@ -9,6 +9,7 @@ export const CategoryTitleContainerSC = styled.div`
 
   @media (max-width: 768px) {
     display: block;
+    bottom: 240px;
   }
   @media (max-height: 768px) {
     display: block;

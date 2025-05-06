@@ -34,7 +34,7 @@ const GsapRainEffect: React.FC<EffectProps> = ({ numberOfDrops = 200 }) => {
 
         // Random values using gsap.utils.random() instead of Math.random()
         const randomY = gsap.utils.random(0, 2); // Random vertical position above viewport
-        const randomX = gsap.utils.random(-5, 105); // Random horizontal position
+        const randomX = gsap.utils.random(10, 90); // Random horizontal position
         const randomEndY = gsap.utils.random(50, 80); // Random vertical position above viewport
         const fallDuration = gsap.utils.random(0.7, 1.7); // Random duration for falling effect
 

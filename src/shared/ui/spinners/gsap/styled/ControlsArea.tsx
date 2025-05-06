@@ -9,13 +9,16 @@ export const ControlsAreaSC = styled.div`
   gap: 20px;
   bottom: 300px;
 
+  @media (max-width: 1440px) {
+    bottom: 240px;
+  }
   @media (max-width: 768px) {
     left: 10vw;
     bottom: 20px;
   }
 
   @media (max-height: 768px) {
-    bottom: 160px;
+    bottom: 150px;
   }
 `;
 

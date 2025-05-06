@@ -11,7 +11,7 @@ interface IProps {
 }
 const EventSlideToBeMapped = ({ slide }: Partial<IProps>) => {
   return (
-    <SlideItemSC>
+    <SlideItemSC $justify='center'>
       <SlideItemTitleSC>{slide?.year}</SlideItemTitleSC>
       <SlideItemContentSC>{slide?.event}</SlideItemContentSC>
     </SlideItemSC>
