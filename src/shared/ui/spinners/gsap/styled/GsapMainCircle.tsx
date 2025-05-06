@@ -24,6 +24,11 @@ export const GsapMainCircleSC = styled.div<MainCircleProps>`
     transform: rotate(${({ $rotate }) => -$rotate}deg);
   }
 
+  @media (max-width: 1440px) {
+    width: ${({ $radius }) => $radius * 1.5 + 'px'};
+    height: ${({ $radius }) => $radius * 1.5 + 'px'};
+  }
+
   @media (max-width: 768px) {
     width: ${({ $radius }) => $radius + 'px'};
     height: ${({ $radius }) => $radius + 'px'};

@@ -66,6 +66,25 @@ export const GsapSpinnerItemSC = styled.div<SpinnerItemProps>`
     color: ${({ theme }) => theme.text.primary};
   }
 
+  @media (max-width: 1440px) {
+    width: ${({ $size, $isIndexActive }) =>
+      $isIndexActive ? `${($size * 7 * 3) / 4}px` : `${$size}px`};
+    height: ${({ $size, $isIndexActive }) =>
+      $isIndexActive ? `${($size * 7 * 3) / 4}px` : `${$size}px`};
+    transform: ${({ $rotation, $activeRotation }) =>
+      `translate(-50%, -50%) translate(${($rotation.x * 3) / 4}px, ${
+        ($rotation.y * 3) / 4
+      }px) rotate(${-$activeRotation}deg)`};
+    &:hover {
+      background-color: ${({ theme }) => theme.bg.vice};
+      transform: ${({ $rotation, $activeRotation, $isIndexActive }) =>
+        !$isIndexActive &&
+        `translate(${($rotation.x * 3) / 4}px, ${
+          ($rotation.y * 3) / 4
+        }px) rotate(${-$activeRotation}deg) scale(5)`};
+    }
+  }
+
   @media (max-width: 768px) {
     width: ${({ $size, $isIndexActive }) =>
       $isIndexActive ? `${($size * 7) / 2}px` : `${$size}px`};

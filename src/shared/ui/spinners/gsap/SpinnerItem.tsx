@@ -42,7 +42,7 @@ const SpinnerItem = ({
       onClick={handleItemClick}
     >
       <SpinnerItemContentSC className='dot-content' $isActive={isActive}>
-        {item}
+        {withLabel ? index : item}
       </SpinnerItemContentSC>
       {isActive && withLabel && <SpinnerItemLabelSC>{item}</SpinnerItemLabelSC>}
     </GsapSpinnerItemSC>

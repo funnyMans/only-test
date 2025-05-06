@@ -19,7 +19,7 @@ const SunshineEffect: React.FC<EffectProps> = ({ numberOfRays = 75 }) => {
 
   // Generate rays with randomized properties
   const rays = Array.from({ length: numberOfRays }).map(() => ({
-    randomX: gsap.utils.random(-10, 100),
+    randomX: gsap.utils.random(0, 70),
     rayWidth: gsap.utils.random(2, 10),
     moveRange: gsap.utils.random(3, 5),
     splatBlur: gsap.utils.random(1, 3), // Lower blur for splat
